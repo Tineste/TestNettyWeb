@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>api服务器</title>
+</head>
+<body>
+
+<button type="button" onclick="sendMessage(1)">启动服务器</button>
+<button type="button" onclick="sendMessage(2)">发送开门指令</button>
+<button type="button" onclick="sendMessage(3)">从智能门禁读取一条UID指令</button>
+<!--<button type="button" onclick="sendMessage(2)">发送开门指令</button>-->
+
+
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    function sendMessage(t){
+        console.log('click');
+        $.get('/index/callback?t='+t, function(result){
+            alert(result.message);
+        });
+    }
+</script>
+</body>
+</html>

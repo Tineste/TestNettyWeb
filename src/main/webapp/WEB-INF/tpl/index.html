@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>api服务器</title>
+</head>
+<body>
+
+<button type="button" onclick="sendMessage(1)">启动服务器</button>
+<button type="button" onclick="sendMessage(2)">发送开门指令0x06</button>
+<button type="button" onclick="sendMessage(3)">从智能门禁读取一条UID指令0x03</button>
+<button type="button" onclick="sendMessage(4)">写一条UID和有效期到智能门禁指令0x04</button>
+<button type="button" onclick="sendMessage(5)">从智能门禁删除一条UID指令</button>
+<button type="button" onclick="sendMessage(6)">清空智能门禁所有UID和有效期指令</button>
+<button type="button" onclick="sendMessage(7)"> 读取给定时间范围内开门日志指令</button>
+<button type="button" onclick="sendMessage(8)"> 服务器向智能门禁发送远程升级指令</button>
+<button type="button" onclick="sendMessage(9)"> 服务器向智能门禁发送远程重启</button>
+
+
+
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    function sendMessage(t){
+        console.log('click');
+        $.get('/index/callback?t='+t, function(result){
+            alert(result.message);
+        });
+    }
+</script>
+</body>
+</html>
